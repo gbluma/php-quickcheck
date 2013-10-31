@@ -1,5 +1,6 @@
 {
     "name": "gbluma/php-quickcheck",
+    "version": "0.1.0",
     "require": {
         "phpunit/phpunit": "3.7.*"
     },
