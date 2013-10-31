@@ -2,74 +2,74 @@
 
 namespace QuickCheck;
 
-function gen_integer()
+function genInteger()
 {
     return rand();
 }
 
-function gen_bool()
+function genBool()
 {
-    return (gen_integer() % 2 == 0);
+    return (genInteger() % 2 == 0);
 }
 
-function gen_byte()
+function genByte()
 {
-    return (gen_integer() % 256);
+    return (genInteger() % 256);
 }
 
-function gen_char()
+function genChar()
 {
-    return chr( gen_integer() % 128 );
+    return chr( genInteger() % 128 );
 }
 
-function gen_seq()
+function genSeq()
 {
     $out = array();
     for ($i = 0; $i < 100; $i++) {
-        $out[] = gen_integer() % 100;
+        $out[] = genInteger() % 100;
     }
     return $out;
 }
 
-function gen_string()
+function genString()
 {
     $str = '';
-    foreach ( gen_seq() as $x ) {
+    foreach ( genSeq() as $x ) {
         $str .= chr( $x );
     }
     return $str;
 }
 
-function gen_switcher($in)
+function genSwitcher($in)
 {
     switch ( strtolower( $in ) )
     {
         case 'int':
         case 'integer':
-            return gen_integer();
+            return genInteger();
             break;
         
         case 'bool':
         case 'boolean':
-            return gen_bool();
+            return genBool();
             break;
         
         case 'char':
         case 'character':
-            return gen_char();
+            return genChar();
             break;
         
         case 'byte':
-            return gen_byte();
+            return genByte();
             break;
         
         case 'seq':
         case 'sequence':
-            return gen_seq();
+            return genSeq();
             break;
         
         case 'string':
-            return gen_string();
+            return genString();
             break;
         
         default :
@@ -77,7 +77,7 @@ function gen_switcher($in)
     }
 }
 
-function gen_data()
+function genData()
 {
     $args = func_get_args();
     $nparam = count( $args );
@@ -87,14 +87,14 @@ function gen_data()
     for ($i = 0; $i < $max_tests; $i++) {
         $params = array();
         for ($j = 0; $j < $nparam; $j++) {
-            $params[] = gen_switcher( $args[$j] );
+            $params[] = genSwitcher( $args[$j] );
         }
         $output[] = $params;
     }
     return $output;
 }
 
-function forall()
+function forAll()
 {
     $args = func_get_args();
     $func = array_shift( $args );
@@ -104,7 +104,7 @@ function forall()
     for ($i = 0; $i < $max_tests; $i++) {
         $params = array();
         for ($j = 0; $j < $nparam; $j++) {
-            $params[] = gen_switcher( $args[$j] );
+            $params[] = genSwitcher( $args[$j] );
         }
         call_user_func_array( $func, $params );
     }

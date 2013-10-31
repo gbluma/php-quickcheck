@@ -2,13 +2,13 @@
 
 class DataProviderTest extends \PHPUnit_Framework_TestCase
 {
-    public function getData()
+    public function genIntInt()
     {
-        return QuickCheck\gen_data( 'int', 'int' );
+        return QuickCheck\genData( 'int', 'int' );
     }
 
     /**
-     * @dataProvider getData
+     * @dataProvider genIntInt
      */
     public function test_data_provider($x, $y)
     {
