@@ -35,7 +35,7 @@ function genString()
 {
     $str = '';
     foreach ( genSeq() as $x ) {
-        $str .= chr( $x );
+        $str .= chr( $x + 32 );
     }
     return $str;
 }
