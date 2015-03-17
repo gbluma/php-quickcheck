@@ -1,8 +1,8 @@
 {
     "name": "gbluma/php-quickcheck",
     "version": "master",
-    "require": {
-        "phpunit/phpunit": "4.*"
+    "require-dev": {
+        "phpunit/phpunit": "4.4.5"
     },
     "autoload": {
         "psr-0": { "QuickCheck" : "src/" },
