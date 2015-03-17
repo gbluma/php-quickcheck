@@ -1,6 +1,6 @@
 {
     "name": "gbluma/php-quickcheck",
-    "version": "0.1.1",
+    "version": "master",
     "require": {
         "phpunit/phpunit": "4.*"
     },
