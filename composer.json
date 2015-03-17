@@ -1,8 +1,8 @@
 {
     "name": "gbluma/php-quickcheck",
     "version": "0.1.0",
-    "require-dev": {
-        "phpunit/phpunit": "*"
+    "require": {
+        "phpunit/phpunit": "4.*"
     },
     "autoload": {
         "psr-0": { "QuickCheck" : "src/" },
@@ -11,6 +11,9 @@
 	    ]
     },
     "authors": [
-        { "name": "Garrett Bluma", "email": "gbluma@deltadentalwi.com" }
+        {
+            "name": "Garrett Bluma",
+            "email": "gbluma@deltadentalwi.com"
+        }
     ]
 }
